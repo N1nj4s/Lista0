@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Números Primos</title>
+</head>
+<body>
+    <h1>Números Primos</h1>
+    <p>Digite um número inteiro positivo:</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="verificarPrimo()">Verificar Primo</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarPrimo() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro positivo
+            if (numero > 0) {
+                // Verifica se o número é primo
+                var primo = true;
+
+                if (numero === 1) {
+                    primo = false;
+                } else if (numero === 2) {
+                    primo = true;
+                } else if (numero % 2 === 0) {
+                    primo = false;
+                } else {
+                    for (var i = 3; i <= Math.sqrt(numero); i += 2) {
+                        if (numero % i === 0) {
+                            primo = false;
+                            break;
+                        }
+                    }
+                }
+
+                // Exibe o resultado
+                var resultadoElement = document.getElementById("resultado");
+                if (primo) {
+                    resultadoElement.innerHTML = numero + " é um número primo.";
+                } else {
+                    resultadoElement.innerHTML = numero + " não é um número primo.";
+                }
+            } else {
+                alert("Por favor, digite um número inteiro positivo maior que 0.");
+            }
+        }
+    </script>
+</body>
+</html>

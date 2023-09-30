@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Múltiplos de Três</title>
+</head>
+<body>
+    <h1>Múltiplos de Três</h1>
+    <p>Os múltiplos de três de 1 a 100 são:</p>
+    <ul id="multiplos"></ul>
+
+    <script>
+        // Inicializa uma variável para armazenar os múltiplos
+        var multiplosElement = document.getElementById("multiplos");
+        multiplosElement.innerHTML = "";
+
+        // Loop para encontrar e exibir os múltiplos de três de 1 a 100
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 === 0) {
+                // Se o número for múltiplo de três, adiciona-o à lista
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(i));
+                multiplosElement.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

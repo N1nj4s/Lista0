@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabuada</title>
+</head>
+<body>
+    <h1>Tabuada</h1>
+    <p>Digite um número:</p>
+    <input type="number" id="numero">
+    <button onclick="exibirTabuada()">Exibir Tabuada</button>
+    <p id="tabuada"></p>
+
+    <script>
+        function exibirTabuada() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro válido
+            if (!isNaN(numero)) {
+                // Calcula e exibe a tabuada
+                var tabuadaElement = document.getElementById("tabuada");
+                tabuadaElement.innerHTML = "<h2>Tabuada do " + numero + "</h2>";
+                tabuadaElement.innerHTML += "<ul>";
+
+                for (var i = 0; i <= 10; i++) {
+                    var resultado = numero * i;
+                    tabuadaElement.innerHTML += "<li>" + numero + " x " + i + " = " + resultado + "</li>";
+                }
+
+                tabuadaElement.innerHTML += "</ul>";
+            } else {
+                alert("Por favor, digite um número válido.");
+            }
+        }
+    </script>
+</body>
+</html>

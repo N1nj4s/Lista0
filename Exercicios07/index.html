@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+    <p>Insira números (digite -1 para calcular a média):</p>
+    <input type="number" id="numero">
+    <button onclick="adicionarNumero()">Adicionar Número</button>
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="numeros"></p>
+    <p id="media"></p>
+
+    <script>
+        var numerosInseridos = [];
+        var numerosElement = document.getElementById("numeros");
+        var mediaElement = document.getElementById("media");
+
+        function adicionarNumero() {
+            var numero = parseInt(document.getElementById("numero").value);
+            if (!isNaN(numero)) {
+                if (numero === -1) {
+                    calcularMedia();
+                } else {
+                    numerosInseridos.push(numero);
+                    numerosElement.innerHTML += numero + ", ";
+                    document.getElementById("numero").value = "";
+                }
+            } else {
+                alert("Por favor, digite um número válido.");
+            }
+        }
+
+        function calcularMedia() {
+            if (numerosInseridos.length === 0) {
+                alert("Nenhum número foi inserido.");
+                return;
+            }
+
+            var soma = 0;
+            for (var i = 0; i < numerosInseridos.length; i++) {
+                soma += numerosInseridos[i];
+            }
+
+            var media = soma / numerosInseridos.length;
+            mediaElement.innerHTML = "A média dos números inseridos é: " + media.toFixed(2);
+        }
+    </script>
+</body>
+</html>

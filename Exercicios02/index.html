@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soma de Números Antecessores</title>
+</head>
+<body>
+    <h1>Soma de Números Antecessores</h1>
+    <p>Digite um número inteiro positivo:</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="calcularSoma()">Calcular Soma</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSoma() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro positivo
+            if (numero > 0) {
+                // Calcula a soma dos números antecessores
+                var soma = 0;
+                for (var i = 1; i < numero; i++) {
+                    soma += i;
+                }
+
+                // Exibe o resultado
+                var resultadoElement = document.getElementById("resultado");
+                resultadoElement.innerHTML = "A soma dos números antecessores é: " + soma;
+            } else {
+                alert("Por favor, digite um número inteiro positivo.");
+            }
+        }
+    </script>
+</body>
+</html>

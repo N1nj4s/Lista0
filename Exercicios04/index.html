@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soma de Quadrados</title>
+</head>
+<body>
+    <h1>Soma de Quadrados</h1>
+    <p>Digite um número inteiro positivo N:</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="calcularSoma()">Calcular Soma</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSoma() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro positivo
+            if (numero > 0) {
+                // Calcula a soma dos quadrados dos primeiros N números inteiros positivos
+                var soma = 0;
+                for (var i = 1; i <= numero; i++) {
+                    soma += i * i;
+                }
+
+                // Exibe o resultado
+                var resultadoElement = document.getElementById("resultado");
+                resultadoElement.innerHTML = "A soma dos quadrados dos primeiros " + numero + " números inteiros positivos é: " + soma;
+            } else {
+                alert("Por favor, digite um número inteiro positivo.");
+            }
+        }
+    </script>
+</body>
+</html>

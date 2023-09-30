@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+    <h1>Contagem Regressiva</h1>
+    <p>Digite um número inteiro positivo:</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+    <p id="contagem"></p>
+
+    <script>
+        function iniciarContagem() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro positivo
+            if (numero > 0) {
+                // Inicia a contagem regressiva
+                var contagemElement = document.getElementById("contagem");
+                contagemElement.innerHTML = "";
+
+                var contador = numero;
+                var intervalo = setInterval(function() {
+                    if (contador >= 0) {
+                        contagemElement.innerHTML += contador + " ";
+                        contador--;
+                    } else {
+                        clearInterval(intervalo);
+                        contagemElement.innerHTML += "Contagem finalizada!";
+                    }
+                }, 1000); // Atualiza a cada segundo (1000 milissegundos)
+            } else {
+                alert("Por favor, digite um número inteiro positivo.");
+            }
+        }
+    </script>
+</body>
+</html>
+

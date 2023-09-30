@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sequência de Fibonacci</title>
+</head>
+<body>
+    <h1>Sequência de Fibonacci</h1>
+    <p>Digite um número inteiro positivo para obter os primeiros N números da sequência:</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="gerarFibonacci()">Gerar Sequência</button>
+    <p id="resultado"></p>
+
+    <script>
+        function gerarFibonacci() {
+            // Obtém o valor digitado pelo usuário
+            var numero = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número é um inteiro positivo
+            if (numero > 0) {
+                // Gera os primeiros N números da sequência de Fibonacci
+                var fibonacci = [0, 1];
+                for (var i = 2; i < numero; i++) {
+                    var proximoNumero = fibonacci[i - 1] + fibonacci[i - 2];
+                    fibonacci.push(proximoNumero);
+                }
+
+                // Exibe o resultado
+                var resultadoElement = document.getElementById("resultado");
+                resultadoElement.innerHTML = "Os primeiros " + numero + " números da sequência de Fibonacci são: " + fibonacci.join(", ");
+            } else {
+                alert("Por favor, digite um número inteiro positivo maior que 0.");
+            }
+        }
+    </script>
+</body>
+</html>
